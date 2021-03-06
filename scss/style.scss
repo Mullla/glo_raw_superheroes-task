@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;600&display=swap');
+@import '_vars';
+@import '_mixins';
+@import '_normilize';
+
+html, body{
+    background: #222;
+}
+
+main{
+    font-family: 'Exo 2', sans-serif;
+    font-size: $font-size;
+    color: $text;
+}
+
+.heroes-title{
+    margin: 20px;
+}
+
+.heroes-content{
+    max-width: 1170px;
+    margin: auto;
+}
+
+.heroes-cards-filter{
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    text-align: right;
+}
+
+.hero{
+    @include shadow;
+    @include border;
+    @include flex(column);
+    @include pattern;
+    margin: auto;
+    padding: 15px;
+    width: 45%;
+    color: rgb(239, 240, 224);
+    margin-bottom: 15px;
+    &-cards{
+        @include flex;
+    }
+    &-img{
+        max-width: 150px;
+        height: 200px;
+        border: 8px solid $text;
+    }
+    .info{
+        @include flex($wrap: nowrap);
+        padding: 10px;
+        &-img{
+            margin-right: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            transform: rotate(-4deg) translate(20px, 20px);
+            &::before{
+                content: '';
+                position: absolute;
+                top: -21px;
+                left: 40%;
+                width: 35px;
+                height: 50px;
+                background: no-repeat url('./../img/tape.png') center / contain;
+            }
+        }
+        &-content{
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 20px;
+            p{
+                margin-bottom: 5px;
+                font-size: 14px;
+                color: $char-text;
+                span{
+                    
+                    text-transform: capitalize;
+                    font-weight: 200;
+                    font-size: $font-size;
+                    color: $text;
+                }
+            }
+        }
+    }
+    .real-name{
+        word-wrap: break-word;
+        cursor: pointer;
+        opacity: 0.1;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    &-movie-info{
+        padding: 15px;
+    }
+    .movies-list{
+        @include flex;
+        list-style: none;
+        padding-left: 0;
+        .movie{
+            font-weight: 200;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+    }
+    &-actor{
+        font-weight: 200;
+        color: $char-text;
+        .actor{
+            font-weight: 400;
+            color: $text;
+        }
+    }
+}
