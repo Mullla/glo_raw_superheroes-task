@@ -11,6 +11,10 @@ main{
     font-family: 'Exo 2', sans-serif;
     font-size: $font-size;
     color: $text;
+
+    @media (max-width: 768px){
+        font-size: 14px;
+    }
 }
 
 .heroes-title{
@@ -34,7 +38,7 @@ main{
     @include border;
     @include flex(column);
     @include pattern;
-    margin: auto;
+    margin: 0 auto;
     padding: 15px;
     width: 45%;
     color: rgb(239, 240, 224);
@@ -46,6 +50,11 @@ main{
         max-width: 150px;
         height: 200px;
         border: 8px solid $text;
+
+        @media (max-width: 768px){
+            max-width: 100px;
+            height: 150px;
+        }
     }
     .info{
         @include flex($wrap: nowrap);
@@ -73,14 +82,24 @@ main{
                 margin-bottom: 5px;
                 font-size: 14px;
                 color: $char-text;
+                @media (max-width: 768px){
+                    font-size: 12px;
+                }
                 span{
                     
                     text-transform: capitalize;
                     font-weight: 200;
                     font-size: $font-size;
                     color: $text;
+                    @media (max-width: 768px){
+                        font-size: 14px;
+                    }
                 }
             }
+        }
+
+        @media (max-width: 425px){
+            padding: 5px;
         }
     }
     .real-name{
@@ -88,8 +107,9 @@ main{
         cursor: pointer;
         opacity: 0.1;
         transition: all 0.3s ease-in-out;
+        animation: blinker 3s ease-in-out infinite alternate;
         &:hover{
-            opacity: 1;
+            animation-play-state: paused;
         }
     }
     &-movie-info{
@@ -108,9 +128,20 @@ main{
     &-actor{
         font-weight: 200;
         color: $char-text;
+        margin-bottom: 15px;
         .actor{
             font-weight: 400;
             color: $text;
         }
     }
+
+    @media (max-width: 425px){
+        width: 90%;
+        padding: 5px;
+    }
+}
+
+@keyframes blinker {
+    from { opacity: 0.0; }
+    to { opacity: 1.0; }
 }
