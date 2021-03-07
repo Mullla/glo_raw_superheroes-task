@@ -27,10 +27,34 @@ main{
 }
 
 .heroes-cards-filter{
+    @include flex;
     margin: 20px;
     font-size: 20px;
     font-weight: 200;
-    text-align: right;
+    .tag{
+        border: 2px solid $border-color;
+        padding: 5px 10px;
+        font-size: 14px;
+        margin: 5px;
+        background: rgba(66, 113, 150, 0.6);
+        &:active{
+            background: lighten(rgba(66, 113, 150, 0.6), 20%);
+            border-color: darken($border-color, 15%);
+        }
+    }
+    .active{
+        background: invert(rgba(66, 113, 150, 0.6));
+        border-color: invert($border-color);
+    }
+}
+
+.movies-list{
+    @include flex;
+    list-style: none;
+    padding-left: 0;
+    .movies-tag{
+        cursor: pointer;
+    }
 }
 
 .hero{
@@ -115,15 +139,10 @@ main{
     &-movie-info{
         padding: 15px;
     }
-    .movies-list{
-        @include flex;
-        list-style: none;
-        padding-left: 0;
-        .movie{
-            font-weight: 200;
-            margin-right: 15px;
-            margin-bottom: 10px;
-        }
+    .movie{
+        font-weight: 200;
+        margin-right: 15px;
+        margin-bottom: 10px;
     }
     &-actor{
         font-weight: 200;

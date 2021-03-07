@@ -270,10 +270,54 @@ main {
 }
 
 .heroes-cards-filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 20px;
   font-size: 20px;
   font-weight: 200;
-  text-align: right;
+}
+
+.heroes-cards-filter .tag {
+  border: 2px solid #1d2e6b;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 5px;
+  background: rgba(66, 113, 150, 0.6);
+}
+
+.heroes-cards-filter .tag:active {
+  background: rgba(122, 163, 196, 0.6);
+  border-color: #0d142f;
+}
+
+.heroes-cards-filter .active {
+  background: rgba(189, 142, 105, 0.6);
+  border-color: #e2d194;
+}
+
+.movies-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+}
+
+.movies-list .movies-tag {
+  cursor: pointer;
 }
 
 .hero {
@@ -413,21 +457,7 @@ main {
   padding: 15px;
 }
 
-.hero .movies-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  list-style: none;
-  padding-left: 0;
-}
-
-.hero .movies-list .movie {
+.hero .movie {
   font-weight: 200;
   margin-right: 15px;
   margin-bottom: 10px;
